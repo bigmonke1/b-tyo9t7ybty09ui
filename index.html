@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BTD5!</title>
+    <script src="ruffle.js"></script>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f0f0f0;
+            margin: 0;
+        }
+        #game {
+            width: 800px; /* Adjust to your game's width */
+            height: 600px; /* Adjust to your game's height */
+        }
+    </style>
+</head>
+<body>
+    <div id="game"></div>
+    <script>
+        const ruffle = window.RufflePlayer.newest();
+        const player = ruffle.createPlayer();
+        document.getElementById("game").appendChild(player);
+        player.load("bloons-tower-defense-5.swf").then(() => {
+            player.start();
+        }).catch(err => {
+            console.error("Error loading SWF file:", err);
+        });
+    </script>
+</body>
+</html>
